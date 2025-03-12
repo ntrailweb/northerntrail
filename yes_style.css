@@ -1,0 +1,93 @@
+a {font-weight:bold;}
+
+table {
+   border-collapse: collapse;
+   border:solid 1px black;
+   }
+td
+   {
+     padding:5px;
+	 border:solid 1px black;
+   }
+   
+th
+   {
+     padding:5px;
+	 border:solid 3px black;
+	 font-size:1.2em;
+   }   
+   
+
+.bt2 button{margin-right:20px;}
+
+#questionnaire {
+  width: 400px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.question {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+textarea, input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+textarea::placeholder {
+    font-style: italic;
+	font-color:red;
+}
+
+input {
+  width: 70%;
+  font-size:18px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  margin-top:5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #E0E0E0;
+}
+
+
+input::placeholder {
+    font-style: italic;
+	color: rgba(0, 128, 255, 0.9); /* Semi-transparent blue */
+
+
+
+
+}
+
+
+
+
+#emailLink {
+  display: block;
+  margin: 20px auto;
+  width: 150px;
+  text-align: center;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.error_class
+{
+   color:red;
+   font-size:1.2em;
+   font-weight:bold;
+}

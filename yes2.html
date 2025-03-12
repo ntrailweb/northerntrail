@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML+RDFa 1.1//EN">
+<html><meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+<title>Adult Recognition</title>
+<html>
+<style>
+a {font-weight:bold;}
+</style>
+<style>
+
+body {background-color:#D0D0FF;}
+
+table {
+   border-collapse: collapse;
+   border:solid 1px black;
+   }
+td
+   {
+     padding:5px;
+	 border:solid 1px black;
+   }
+   
+th
+   {
+     padding:5px;
+	 border:solid 3px black;
+	 font-size:1.2em;
+   }   
+   
+
+.bt2 button{margin-right:20px;}
+
+#questionnaire {
+  width: 400px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.question {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+textarea, input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+#emailLink {
+  display: block;
+  margin: 20px auto;
+  width: 150px;
+  text-align: center;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+</style>
+<body>
+<p><a href="https://ntrail.org" style="font-weight:bold;"><img style="width:100%;" alt="Northern Trail District" src="images/header_s.png"></a></p>
+<div class=bt2 style="max-width:700px; width:100%">
+<a href="index.html"><button style="margin-left:10px;">Home</button></a>
+<a href="about-northern-trail.html"><button>About</button></a>
+<a href="calendar-events.html"><button>Calendar</button></a>
+<a href="current-newsletter.html"><button>Newsletter</button></a>
+<a href="district-leadership-0.html"><button>Leadership</button></a>
+<a href="commissioners.html"><button>Commissioners</button></a>
+<a href="forms-and-more.html"><button>Resources</button></a>
+</div>
+
+<div style="width:700PX;" class="nt">
+<h2>Your Extordinary Service Award Nomination Form</h2>
+<p>This award recognizes individuals in units who have preformed extraordinary service to their units. Every Unit receives 2 nominations, units that have 50-99 youth members are entitled to an additional nomination, and Units with 100 or more youth members are allowed a total of 4 nominations.</p>
+<p>Any adult member of a unit may make a nomination, but it's best to check with your unit chair.</p>
+
+<h2>Name of Nominee</h2>
+<p>Please insure that the name is spelled correctly with the correct capitalization.  It will be included on the certificate exactly as you enter the information.<br /> 
+<span class="error_class" id="nom_name_error"></span>
+<input type="text" id="nom_name" name="nom_name" placeholder="Joe Scouter"  maxlength="60" required />
+</p>
+<h2>Unit Type</h2>
+<p>Please indicate the unit type and number.<br />
+<span class="error_class" id="nom_unit_error"></span>
+<input type="text" id="nom_unit" name="nom_unit" placeholder="Troop 9999 Boys"  maxlength="60" required />
+</p>
+<h2>Nominee Position</h2>
+<p>Please indicate the position of the nominee in the  unit.  For example Den Leader, merit badge counselor, cubmaster etc.<br />
+<span class="error_class" id="nom_position_error"></span>
+<input type="text" id="nom_position" name="nom_position" placeholder="Den Leader"  maxlength="60" required />
+</p>
+
+<h2>Unit Chartering Organization</h2>
+<p>Please indicate the name of the chartering organization for the nominee's unit.<br />
+<span class="error_class" id="nom_cor_error"></span>
+<input type="text" id="nom_cor" name="nom_cor" placeholder="Name of Organization"   maxlength="60"required />
+</p>
+
+<h2>Your Name</h2>
+<p>Please provide your name.<br />
+<span class="error_class" id="nt_name_error"></span>
+<input type="text" id="nt_name" name="nt_name" placeholder="Joe Scout"   maxlength="60" required />
+</p>
+
+<h2>Your Position in Unit</h2>
+<p>Please provide your position in your unit.  For example, member of the committee, den leader, cubmaster, etc.<br />
+<span class="error_class" id="nt_pos_error"></span>
+<input type="text" id="nt_pos" name="nt_pos" placeholder="Member of Committee"   maxlength="60" required />
+</p>
+
+<h2>Your Email Address</h2>
+<p>Please provide your email address so we can contact you about the nomination.<br />
+<span class="error_class" id="email_error"></span>
+<input type="email" id="email" name="email" placeholder="Your Email Address"   maxlength="60" required />
+</p>
+
+<h2>Recipient's Email Address</h2>
+<p>Please provide the nominee email address so we can contact them should the nomination be approved.<br />
+<span class="error_class" id="email_error_nom"></span>
+<input type="email" id="email_nom" name="email_nom" placeholder="Nominee Email Address"   maxlength="60" required />
+</p>
+
+<h2>Statement about Nominee</h2>
+<p>Please provide a statement about why this person should receive this award.  Your statement will be included in the awards banquet program. Please be concise, we have limited space in the program.<br />
+<span class="error_class" id="nom_statement_error"></span>
+<textarea id="nom_statement" name="nom_statement" placeholder="Describe the nominees role in the unit and the extordinary service they provided to the unit. " required ></textarea></p>
+
+<button id="send_email">Send Email Now</button>
+
+<a id="emailLink" href="#">Send Email</a>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+  const submitButton = document.getElementById('send_email');
+  // const emailLink = document.getElementById('emailLink');
+  
+  submitButton.addEventListener('click', function() {
+    event.preventDefault(); // Prevent default form submission
+    const nom_name = document.getElementById('nom_name').value;
+    const nom_unit = document.getElementById('nom_unit').value;
+	const nom_position = document.getElementById('nom_position').value;
+	const nom_cor = document.getElementById('nom_cor').value; 
+	const nt_name = document.getElementById('nt_name').value;
+	const nt_pos = document.getElementById('nt_pos').value;
+	const email = document.getElementById('email').value;
+	const email_nom = document.getElementById('email_nom').value;
+	const nom_statement = document.getElementById('nom_statement').value;
+    const subject = encodeURIComponent('Y.E.S. Nomination');
+   
+    let body = `Name of Nominee: ${nom_name}\n`;
+	body = body + `Unit Type: ${nom_unit}\n`;
+	body = body + `Nominee Position: ${nom_position}\n`;
+	body = body + `Unit Chartering Organization: ${nom_cor}\n`;
+	body = body + `Your Name: ${nt_name}\n`;
+    body = body + `Your Position in Unit: ${nt_pos}\n`;
+    body = body + `Your Email Address: ${email}\n`;
+	body = body + `Recipient's Email Address: ${email_nom}\n`;
+    body = body + `Statement about Nominee: ${nom_statement}\n`;
+    const encodedBody = encodeURIComponent(body);
+
+    const emailLink = document.getElementById('emailLink');
+	emailLink.href = `mailto:your-email@example.com?subject=${subject}&body=${encodedBody}`;
+   // submit.style.display = 'block'; // Show the email link
+    emailLink.click(); //programmatically click the link.
+   // submit.style.display = 'none'; // hide the link again.
+	
+  });
+});
+</script>
+</body>
+</html>
