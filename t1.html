@@ -4,24 +4,24 @@
 const baseURL = "https://ntrail.org/news/"; // Replace with the actual base URL
 
 function checkFileExists(url) {
-  return new Promise((resolve) => {
-    fetch(url, { method: 'HEAD' })
-      .then((response) => {
-        if (response.ok) { // Check for successful HTTP status (200-299)
-          resolve(true);
-        } else {
-          resolve(false); // Resolve with false for non-successful status (e.g., 404)
-        }
-      })
-      .catch(() => {
-        resolve(false); // Resolve with false for network or other errors
-      });
-  });
+ return new Promise((resolve) => {
+ fetch(url, { method: 'HEAD' })
+ .then((response) => {
+ if (response.ok) { // Check for successful HTTP status (200-299)
+ resolve(true);
+ } else {
+ resolve(false); // Resolve with false for non-successful status (e.g., 404)
+ }
+ })
+ .catch(() => {
+ resolve(false); // Resolve with false for network or other errors
+ });
+ });
 }
 
 
 function findLatestFile(n) {
-  
+ 
 	const today = new Date();
 	const date = new Date();
 	var week = date.getDay();
@@ -37,13 +37,13 @@ function findLatestFile(n) {
 }
 
 
-// if (  checkFileExists(baseURL + findLatestFile(-1)))
+// if ( checkFileExists(baseURL + findLatestFile(-1)))
 // {
-//     console.log(`file exists` + baseURL + findLatestFile(-1));
+// console.log(`file exists` + baseURL + findLatestFile(-1));
 // }
 // else
 // {
-//     console.log(`file doe not exist` + baseURL + findLatestFile(-1));
+// console.log(`file doe not exist` + baseURL + findLatestFile(-1));
 // }
 // 
 
@@ -54,21 +54,21 @@ function findLatestFile(n) {
 
 function fill_list()
 {
-  var output = "<p>";
-  for(i=-2;i<5;i++)
-  {
-     console.log(i);
+ var output = "<p>";
+ for(i=-2;i<5;i++)
+ {
+ console.log(i);
 	 var file_name = findLatestFile(i);
 	 console.log(baseURL + file_name);
 	 
  
-	 if(  checkFileExists(baseURL+file_name)  )
+	 if( checkFileExists(baseURL+file_name) )
 	 {
-	    output = output + `<a href="` + baseURL + file_name + `">`+ file_name + `</a><br />`;
-     } 		
-  }
-  output = output + "</p>";
-  document.getElementById("list").innerHTML = output; 
+	 output = output + `<a href="` + baseURL + file_name + `">`+ file_name + `</a><br />`;
+ } 		
+ }
+ output = output + "</p>";
+ document.getElementById("list").innerHTML = output; 
 }
 
 </script>
