@@ -32,7 +32,7 @@ function findLatestFile(n) {
 	
 	return `${year}_${month}_${day}.html\n`;
 }
-function fill_list()
+function fill_list(n)
 {
   
   const linkElement = document.getElementById('current');
@@ -40,17 +40,14 @@ function fill_list()
   
   
   var output = "<p>";
-  for(i=1;i<25;i++)
+  for(i=1;i<n;i++)
   {
      console.log(i);
 	 var file_name = findLatestFile(i);
 	 console.log(baseURL + file_name);
 	 
- 
-	 if(  checkFileExists(baseURL+file_name)  )
-	 {
-	    output = output + `<a href="` + baseURL + file_name + `">`+ file_name + `</a><br />`;
-     } 		
+ 	 output = output + `<a href="` + baseURL + file_name + `">`+ file_name + `</a><br />`;
+ 		
   }
   output = output + "</p>";
   document.getElementById("list").innerHTML = output; 
