@@ -36,15 +36,17 @@ label {
   margin-bottom: 5px;
 }
 
-textarea, input[type="text"] {
+textarea {
   width: 100%;
   padding: 8px;
+  font-size:18px;
   box-sizing: border-box;
+  background-color: #E0E0E0;
 }
 
 textarea::placeholder {
     font-style: italic;
-	font-color:red;
+	color: rgba(0, 128, 255, 0.9); /* Semi-transparent blue */
 }
 
 input {
