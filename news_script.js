@@ -36,9 +36,11 @@ function fill_list(n)
 {
   
   const linkElement = document.getElementById('current');
-  linkElement.href = baseURL + findLatestFile(0) ;
-  
-  
+  linkElement.href = baseURL + findLatestFile(0);
+    
+  const draftElement = document.getElementById('draft');
+  draftElement.href = baseURL + findLatestFile(-1);
+  	
   var output = "<p>";
   for(i=1;i<n;i++)
   {
