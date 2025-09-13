@@ -253,29 +253,54 @@
     Upcoming Roundtable Topics:
   </p>
 
-<table style="width:100%; border-collapse:collapse; border-radius:12px; overflow:hidden; font-size:1em; margin-top:0.5em;">
+<table id="roundtable-topics" style="width:100%; border-collapse:collapse; border-radius:12px; overflow:hidden; font-size:1em; margin-top:0.5em;">
   <tr style="background-color:#004990; color:#fff;">
     <th style="padding:0.7em; text-align:left;">Date</th>
     <th style="padding:0.7em; text-align:left;">Topic</th>
   </tr>
-  <tr style="background-color:#eeeeee; color:#777;">
-    <td style="padding:0.7em; font-weight:bold;">
-      September 11 <span style="color:red; font-weight:bold; margin-left:10px;">PAST</span>
-    </td>
-    <td style="padding:0.7em;">
-      Are you a leader? Do you have a backup? Learn from the Council’s expert on <strong>succession planning</strong>.
-    </td>
+  <tr data-date="2025-09-11" style="background-color:#f4f9ff;">
+    <td style="padding:0.7em; font-weight:bold;">September 11</td>
+    <td style="padding:0.7em;">Are you a leader? Do you have a backup? Learn from the Council’s expert on <strong>succession planning</strong>.</td>
   </tr>
-  <tr style="background-color:#e9f1fb;">
+  <tr data-date="2025-10-09" style="background-color:#e9f1fb;">
     <td style="padding:0.7em; font-weight:bold;">October 9</td>
     <td style="padding:0.7em;">Unit renewal is around the corner! Hear from Council on how the process will work and how to succeed on the first try.</td>
   </tr>
-  <tr style="background-color:#f4f9ff;">
+  <tr data-date="2025-11-13" style="background-color:#f4f9ff;">
     <td style="padding:0.7em; font-weight:bold;">November 13</td>
     <td style="padding:0.7em;">Packs, are your AOLs ready to crossover? Troops, are you ready to welcome them? Learn how to prepare families and Troops for a smooth transition.</td>
   </tr>
 </table>
 
+<script>
+(function() {
+  const today = new Date();
+  const rows = document.querySelectorAll("#roundtable-topics tr[data-date]");
+  let nextEventFound = false;
+
+  rows.forEach(row => {
+    const rowDate = new Date(row.getAttribute("data-date"));
+    const dateCell = row.querySelector("td:first-child");
+
+    if (rowDate < today) {
+      // Past event styling
+      row.style.backgroundColor = "#eeeeee";
+      row.style.color = "#777";
+      if (dateCell && !dateCell.innerHTML.includes("PAST")) {
+        dateCell.innerHTML += ' <span style="color:red; font-weight:bold; margin-left:10px;">PAST</span>';
+      }
+    } else if (!nextEventFound) {
+      // Highlight the next upcoming event
+      row.style.backgroundColor = "#d9f7d9"; // light green
+      row.style.fontWeight = "bold";
+      if (dateCell && !dateCell.innerHTML.includes("NEXT")) {
+        dateCell.innerHTML += ' <span style="color:green; font-weight:bold; margin-left:10px;">📌 NEXT</span>';
+      }
+      nextEventFound = true;
+    }
+  });
+})();
+</script>
 
 </div>
 
