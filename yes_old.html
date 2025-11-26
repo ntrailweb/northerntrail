@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML+RDFa 1.1//EN">
+<html><meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+<link rel="stylesheet" href="yes_style.css">
+<script language="JavaScript" src="yes_script.js"></script>
+<title>Adult Recognition</title>
+</head>
+<html>
+<body>
+<p><a homeurl style="font-weight:bold;"><img style="width:100%;" alt="Northern Trail District" src="images/header_s.png"></a></p>
+<div class=bt2 style="max-width:700px; width:100%">
+<a href="index.html"><button style="margin-left:10px;">Home</button></a>
+<a href="about-northern-trail.html"><button>About</button></a>
+<a href="calendar-events.html"><button>Calendar</button></a>
+<a href="current-newsletter.html"><button>Newsletter</button></a>
+<a href="district-leadership-0.html"><button>Leadership</button></a>
+<a href="commissioners.html"><button>Commissioners</button></a>
+<a href="forms-and-more.html"><button>Resources</button></a>
+</div>
+
+<div style="width:700PX;" class="nt">
+<h2>Your Extordinary Service Award Nomination Form</h2>
+<p>This award recognizes individuals in units who have preformed extraordinary service to their units. Every Unit receives 2 nominations, units that have 50-99 youth members are entitled to an additional nomination, and Units with 100 or more youth members are allowed a total of 4 nominations.</p>
+<p>Any adult member of a unit may make a nomination, but it's best to check with your unit chair.</p>
+
+<h2>Please Note:</h2>
+<p>This form will generate an email template on your machine so you can easily send the information to the Awards and Recognition Chair in a format which will make it easier for them to process the nomination.</p>
+<p>If you can not make the email work, just copy the information in the fields and send the nomination directly to the Awards and Recognition chair at <a href="mailto:yes.ntrail.org"><strong>yes.ntrail.org</strong></a>.</p>
+<p>The form will check to see if all of the needed information has been entered before it will generate the email template.</p>
+
+<h2>Name of Nominee</h2>
+<p>Please insure that the name is spelled correctly with the correct capitalization. It will be included on the certificate exactly as you enter the information.<br /> 
+<span class="error_class" id="nom_name_error"></span>
+<input type="text" id="nom_name" name="nom_name" placeholder="Joe Scouter" maxlength="60" required />
+</p>
+<h2>Unit Type</h2>
+<p>Please indicate the unit type and number.<br />
+<span class="error_class" id="nom_unit_error"></span>
+<input type="text" id="nom_unit" name="nom_unit" placeholder="Troop 9999 Boys" maxlength="60" required />
+</p>
+<h2>Nominee Position</h2>
+<p>Please indicate the position of the nominee in the unit. For example Den Leader, merit badge counselor, cubmaster etc.<br />
+<span class="error_class" id="nom_position_error"></span>
+<input type="text" id="nom_position" name="nom_position" placeholder="Den Leader" maxlength="60" required />
+</p>
+<h2>Unit Chartering Organization</h2>
+<p>Please indicate the name of the chartering organization for the nominee's unit.<br />
+<span class="error_class" id="nom_cor_error"></span>
+<input type="text" id="nom_cor" name="nom_cor" placeholder="Name of Organization" maxlength="60"required />
+</p>
+<h2>Your Name</h2>
+<p>Please provide your name.<br />
+<span class="error_class" id="nt_name_error"></span>
+<input type="text" id="nt_name" name="nt_name" placeholder="Joe Scout" maxlength="60" required />
+</p>
+
+<h2>Your Position in Unit</h2>
+<p>Please provide your position in your unit. For example, member of the committee, den leader, cubmaster, etc.<br />
+<span class="error_class" id="nt_pos_error"></span>
+<input type="text" id="nt_pos" name="nt_pos" placeholder="Member of Committee" maxlength="60" required />
+</p>
+
+<h2>Your Email Address</h2>
+<p>Please provide your email address so we can contact you about the nomination.<br />
+<span class="error_class" id="email_error"></span>
+<input type="email" id="email" name="email" placeholder="Your Email Address" maxlength="60" required />
+</p>
+
+<h2>Recipient's Email Address</h2>
+<p>Please provide the nominee email address so we can contact them should the nomination be approved.<br />
+<span class="error_class" id="email_error_nom"></span>
+<input type="email" id="email_nom" name="email_nom" placeholder="Nominee Email Address" maxlength="60" required />
+</p>
+
+<h2>Statement about Nominee</h2>
+<p>Please provide a statement about why this person should receive this award. Your statement will be included in the awards banquet program. Please be concise, we have limited space in the program.<br />
+<span class="error_class" id="nom_statement_error"></span>
+<textarea id="nom_statement" name="nom_statement" placeholder="Describe the nominees role in the unit and the extordinary service they provided to the unit. " required ></textarea></p>
+
+<p class="error_class" id="form_error"></p>
+
+<button id="send_email">Send Email Now</button>
+
+<a style="display:none;" id="emailLink" href="#">Send Email</a>
+ 
+</body>
+</html>
